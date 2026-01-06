@@ -543,7 +543,6 @@ class AsyncChatbot:
                         candidate = body[4][0]
                         if len(candidate) > 22 and candidate[22]:
                             # Look for URLs in the candidate[22] field
-                            import re
                             content = candidate[22][0] if isinstance(candidate[22], list) and len(candidate[22]) > 0 else str(candidate[22])
                             urls = re.findall(r'https?://[^\s]+', content)
                             for i, url in enumerate(urls):
@@ -561,7 +560,6 @@ class AsyncChatbot:
                 # Format 4: Look for image URLs in the text content
                 if len(images) == 0 and len(generated_images) == 0 and content:
                     try:
-                        import re
                         # Look for image URLs in the content - try multiple patterns
 
                         # Pattern 1: Standard image URLs
